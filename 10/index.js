@@ -1,32 +1,30 @@
-function isPythag (a, b, c) {
-  return a**2 + b**2 === c**2;
-}
+(() => {
+  const limit = 2000000;
+  let sum = 0;
+  let curr = 3;
+  const primes = [2];
 
-function isEqual (a, b, c, limit) {
-  return a + b + c === limit;
-}
+  while (curr < limit) {
+    let isPrime = true;
 
-const limit = 1000;
-
-let a = 1;
-let b = 2;
-let c = limit - a - b;
-
-while (b < limit) {
-  if (a < b && b < c) {
-    if (isPythag(a, b, c)) {
-      if (isEqual(a, b, c, limit)) {
-        return console.log('SOLVED;', `A: ${a}, B: ${b}, C: ${c};`, `PRODUCT: ${a * b * c};`);
+    for (let i = 0; i < primes.length; i++) {
+      const currPrime = primes[i];
+      if (curr % currPrime === 0) {
+        isPrime = false;
+        break;
       }
     }
+
+    if (isPrime) {
+      primes.push(curr);
+    }
+
+    curr++;
   }
 
-  b++;
+  const solution = primes.reduce((agg, curr) => {
+    return agg += curr;
+  }, 0);
 
-  if (b === limit) {
-    a++;
-    b = 0;
-  }
-
-  c = limit - a - b;
-}
+  return console.log(solution);
+})();
