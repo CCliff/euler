@@ -121,7 +121,7 @@
       finalSum.push(carryOver);
     }
   }
-  
+
   console.log(finalSum.length);
   console.log(finalSum.reverse().join(''));
 })();
