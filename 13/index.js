@@ -103,9 +103,6 @@
     '53503534226472524250874054075591789781264330331690',
   ];
 
-  // '37107287533902102798797998220837590246510135740250',
-  // '46376937677490009712648124896970078050417018260538',
-
   const finalSum = nums[0].split('').reverse();
   let carryOver = 0;
 
@@ -113,15 +110,9 @@
     for (let j = 0; j < finalSum.length; j++) {
       const digit = parseInt(nums[i].split('').reverse()[j]) || 0;
       const finalSumDigit = parseInt(finalSum[j]) || 0;
-      // console.log('finalSumDigit', finalSumDigit);
-
       const proxyDigit = digit + finalSumDigit + carryOver;
-      // console.log('ProxyDigit', proxyDigit);
-
       carryOver = Math.floor(proxyDigit / 10);
-      
       const newDigit = proxyDigit % 10;
-      // console.log('newDigit', newDigit);
 
       finalSum[j] = newDigit;
     }
@@ -130,6 +121,7 @@
       finalSum.push(carryOver);
     }
   }
+  
   console.log(finalSum.length);
   console.log(finalSum.reverse().join(''));
 })();
