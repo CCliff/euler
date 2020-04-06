@@ -1,5 +1,8 @@
 # Project Euler Exercises
 
+## Uncompleted
+- 24
+
 ## The Exercises
 All exercises can be found on https://projecteuler.net/
 
